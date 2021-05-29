@@ -24,31 +24,31 @@ public class Main {
          * Ciclo para las opciones
          */
         while (selec!=4) {
-            System.out.println("Bienvenido al programa implementando el algoritmo de Floyd \nLas opciones son las siguientes:");
-            System.out.println("1. Calcular distancia entre ciudades");
-            System.out.println("2. Ciudad en el centro del grafo");
+            System.out.println("Bienvenido al menu de opciones \nLas opciones son las siguientes:");
+            System.out.println("1. Ciudad de Origen-Ciudad de Destino");
+            System.out.println("2. Ciudad dentro del grafo");
             System.out.println("3. Modificar grafo");
-            System.out.println("4. Finalizar Programa");
-            System.out.println("Ingrese una opcion: \n");
+            System.out.println("4. Salir");
+            System.out.println("Ingrese una opcion: ");
             selec = scan.nextInt();
 
             if (selec==1) {
                 matriz.CamCorto();
-                System.out.println("\nCiudad de Origen: ");
-                String c1 = scan.next();
+                System.out.println("Ciudad de Origen: ");
+                String ciudad1 = scan.next();
                 System.out.println("Ciudad de Destino: ");
-                String c2 = scan.next();
+                String ciudad2 = scan.next();
 
-                if (matriz.D.contains(c1)&&matriz.D.contains(c2)) {
-                    System.out.println("\nLa distacnia minima es :" + matriz.D.getEdge(c1, c2));
-                    if (matriz.D.getEdge(c1, c2)!=10000) {
-                        System.out.println("La ruta es" + c1);
+                if (matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)) {
+                    System.out.println("\nLa distacnia minima es :" + matriz.D.getEdge(ciudad1, ciudad2));
+                    if (matriz.D.getEdge(ciudad1, ciudad2)!=10000) {
+                        System.out.println("La ruta es" + ciudad1);
                         try {
-                            matriz.Intermedios(matriz.D.getIndex(c1), matriz.D.getIndex(c2));
+                            matriz.Intermedios(matriz.D.getIndex(ciudad1), matriz.D.getIndex(ciudad2));
                         } catch (Exception e) {
                             System.out.println("");
                         }
-                        System.out.println(","+c2);
+                        System.out.println(","+ciudad2);
                     }
                 }
             }
@@ -58,49 +58,49 @@ public class Main {
             }
 
             else if (selec==3) {
-                System.out.println("\n1. Fijar interrupción entre ciudades");
+                System.out.println("1. Fijar interrupción entre ciudades");
                 System.out.println("2. Fijar nueva conexión");
                 System.out.println("Ingrese una opción: ");
                 opcion=scan.nextInt();
                 if (opcion==1) {
                     System.out.println("Ciudad de Origen: ");
-                    String c1 = scan.next();
+                    String ciudad1 = scan.next();
                     System.out.println("Ciudad de Destino: ");
-                    String c2 = scan.next();
-                    if (matriz.D.contains(c1)&&matriz.D.contains(c2)) {
-                        matriz.D.addEdge(c1, c2, 10000);
+                    String ciudad2 = scan.next();
+                    if (matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)) {
+                        matriz.D.addEdge(ciudad1, ciudad2, 10000);
                         try {
-                            matriz.lector.Write(c1+" "+c2+"10000");
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            matriz.lector.Write(ciudad1+" "+ciudad2+"10000");
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
                     }
                 }
 
                 if(opcion==2) {
-                    System.out.println("\nCiudad de Origen: ");
-                    String c1 = scan.next();
+                    System.out.println("Ciudad de Origen: ");
+                    String ciudad1 = scan.next();
                     System.out.println("Ciudad de Destino: ");
-                    String c2 = scan.next();
+                    String ciudad2 = scan.next();
                     System.out.println("Distancia en KM entre las dos ciudades: ");
                     int dist=scan.nextInt();
-                    if (matriz.D.contains(c1)&&matriz.D.contains(c2)) {
-                        matriz.D.addEdge(c1, c2, dist);
+                    if (matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)) {
+                        matriz.D.addEdge(ciudad1, ciudad2, dist);
                     }
                     else {
-                        matriz.D.add(c1);
-                        matriz.D.add(c2);
-                        matriz.D.addEdge(c1, c2, dist);
+                        matriz.D.add(ciudad1);
+                        matriz.D.add(ciudad2);
+                        matriz.D.addEdge(ciudad1, ciudad2, dist);
                     }
                     try {
-                        matriz.lector.Write(c1 +" "+c2+" "+dist);
-                    } catch (IOException e){
-                        e.printStackTrace();
+                        matriz.lector.Write(ciudad1 +" "+ciudad2+" "+dist);
+                    } catch (IOException ex){
+                        ex.printStackTrace();
                     }
                 }
                 matriz.CamCorto();
             }
         }
-        System.out.println("\nHa elegido salir.\nBuen día!!!");
+        System.out.println("Ha elegido salir.\nBuen día!!!");
     }
 }
