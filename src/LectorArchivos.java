@@ -1,16 +1,16 @@
 import java.io.*;
 
 public class LectorArchivos {
-    File doc;
+    File file;
     FileReader filer;
     BufferedReader buffer;
-    FileWriter fw;
-    PrintWriter pw;
+    FileWriter escritura;
+    PrintWriter impresion;
     GrafoInterface graf = new Grafo();
 
     public void ReadFile(String direccion) throws FileNotFoundException {
-        doc= new File(direccion);
-        filer = new FileReader(doc);
+        file= new File(direccion);
+        filer = new FileReader(file);
         buffer = new BufferedReader(filer);
         String linea;
         try {
@@ -31,7 +31,7 @@ public class LectorArchivos {
      * @throws IOException
      */
     public GrafoInterface<String, String> arreglosN() throws IOException{
-        filer = new FileReader(doc);
+        filer = new FileReader(file);
         buffer = new BufferedReader(filer);
         String linea;
         while ((linea = buffer.readLine())!=null) {
@@ -47,14 +47,14 @@ public class LectorArchivos {
      * @throws IOException
      */
     public void Write(String cadena) throws IOException {
-        fw = new FileWriter(doc);
-        pw = new PrintWriter(fw);
-        pw.println(cadena);
+        escritura = new FileWriter(file);
+        impresion = new PrintWriter(escritura);
+        impresion.println(cadena);
     }
 
     public GrafoInterface<String, String> CostoM() throws IOException{
         // Lectura del fichero
-        filer = new FileReader (doc);
+        filer = new FileReader (file);
         buffer = new BufferedReader(filer);
         String linea;
 

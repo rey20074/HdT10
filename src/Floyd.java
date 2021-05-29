@@ -9,13 +9,13 @@ public class Floyd {
     int [][] P;
     int [] max;
     int centro;
-    int minimo = 10000;
+    int minimo = 5000;
 
     public Floyd(){
 
         try {
             lector.ReadFile("guategrafo.txt");
-            lector.arreglosN(); //Nombre de los nodos
+            lector.arreglosN();
             D = lector.CostoM(); // Peso de los arcos entre los nodos
             P = new int [25][25]; //matriz de nodos intermedios
             max = new int[25];

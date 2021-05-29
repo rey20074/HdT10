@@ -68,9 +68,9 @@ public class Main {
                     System.out.println("Ciudad de Destino: ");
                     String ciudad2 = scan.next();
                     if (matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)) {
-                        matriz.D.addEdge(ciudad1, ciudad2, 10000);
+                        matriz.D.addEdge(ciudad1, ciudad2, 5000);
                         try {
-                            matriz.lector.Write(ciudad1+" "+ciudad2+"10000");
+                            matriz.lector.Write(ciudad1+" "+ciudad2+"5000");
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
@@ -82,7 +82,7 @@ public class Main {
                     String ciudad1 = scan.next();
                     System.out.println("Ciudad de Destino: ");
                     String ciudad2 = scan.next();
-                    System.out.println("Distancia en KM entre las dos ciudades: ");
+                    System.out.println("Distancia en Km entre las dos ciudades: ");
                     int dist=scan.nextInt();
                     if (matriz.D.contains(ciudad1)&&matriz.D.contains(ciudad2)) {
                         matriz.D.addEdge(ciudad1, ciudad2, dist);
