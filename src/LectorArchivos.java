@@ -20,8 +20,10 @@ public class LectorArchivos {
                 graf.add(word[0]);
                 graf.add(word[1]);
             }
-        } catch (IOException e) {}
-        System.out.println("No se ha encontrado el archivo");
+        } catch (IOException e) {
+            System.out.println("No se ha encontrado el archivo");
+        }
+
     }
     /**
      *
