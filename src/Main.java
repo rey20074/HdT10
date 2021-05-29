@@ -25,16 +25,16 @@ public class Main {
          */
         while (selec!=4) {
             System.out.println("Bienvenido al menu de opciones \nLas opciones son las siguientes:");
-            System.out.println("1. Ciudad de Origen-Ciudad de Destino");
-            System.out.println("2. Ciudad dentro del grafo");
+            System.out.println("1. Distancia entre ciudades");
+            System.out.println("2. Ciudad en el centro del grafo");
             System.out.println("3. Modificar grafo");
-            System.out.println("4. Salir");
-            System.out.println("Ingrese una opcion: ");
+            System.out.println("4. Finalizar Programa");
+            System.out.println("Ingrese una opcion: \n");
             selec = scan.nextInt();
 
             if (selec==1) {
                 matriz.CamCorto();
-                System.out.println("Ciudad de Origen: ");
+                System.out.println("\nCiudad de Origen: ");
                 String ciudad1 = scan.next();
                 System.out.println("Ciudad de Destino: ");
                 String ciudad2 = scan.next();
@@ -58,7 +58,7 @@ public class Main {
             }
 
             else if (selec==3) {
-                System.out.println("1. Fijar interrupción entre ciudades");
+                System.out.println("\n1. Fijar interrupción entre ciudades");
                 System.out.println("2. Fijar nueva conexión");
                 System.out.println("Ingrese una opción: ");
                 opcion=scan.nextInt();
@@ -78,7 +78,7 @@ public class Main {
                 }
 
                 if(opcion==2) {
-                    System.out.println("Ciudad de Origen: ");
+                    System.out.println("\nCiudad de Origen: ");
                     String ciudad1 = scan.next();
                     System.out.println("Ciudad de Destino: ");
                     String ciudad2 = scan.next();
@@ -101,6 +101,6 @@ public class Main {
                 matriz.CamCorto();
             }
         }
-        System.out.println("Ha elegido salir.\nBuen día!!!");
+        System.out.println("\nHa elegido salir.\nBuen día!!!");
     }
 }
